@@ -15,9 +15,14 @@ const TodoList = ({todos, onTodoClick}) => {
                 {todos.map((todo, index) => 
                     
                     (
+                        
                         <Todo 
+
+                        //son las props del todo, sin eso la aplicacion estaria incompleta
                             key={index}
+                           //pasa toda la informacion que tiene el todo, TODOS
                             {...todo} // id, text, completed
+                            //aqui se crea el todo
                             onClick = {
                                 () => onTodoClick(todo.id)
                             }
@@ -30,7 +35,10 @@ const TodoList = ({todos, onTodoClick}) => {
         </div>
     );
 }
-
+//aqui se pasa la logica o los requerimientos para que esto funcione
+//osea que cada parte del todo este selleciona a un tipo de dato especifico
+//todo dentro del arrayOf
+//por ejemplo el id que debe ser un numero obligatoriamente
 TodoList.propTypes = {
     todos: PropTypes.arrayOf(
         PropTypes.shape(
@@ -41,6 +49,7 @@ TodoList.propTypes = {
             }
         ).isRequired
     ).isRequired,
+    //es una funcion obligatoria
     onTodoClick: PropTypes.func.isRequired       
 }
 
